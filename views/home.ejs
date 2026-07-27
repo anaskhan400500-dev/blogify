@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Home pages</title>
+    <%- include("./partials/head") %>
+  </head>
+  <body>
+    <%- include("./partials/navbar") %> 
+     <div class="container mt-3">
+      <div>
+        <% if (locals.blogs.length === 0) { %>
+          <h3>No one has created any blogs yet.</h3>
+        <% } %>
+      </div>
+       <div class="row gap-4 row-cols-4">
+             <% blogs.forEach(blog => { %>
+              <div class="card" style="width: 18rem;">
+               <img src="<%= blog.coverImageUrl %>" class="card-img-top" >
+               <div class="card-body">
+                <h5 class="card-title"><%= blog.title %></h5>
+                <a href="/blog/<%= blog._id %>" class="btn btn-primary">View</a>
+             </div>
+      </div>
+    <% }) %>
+       </div>
+     </div>
+    <%-include("./partials/script") %>
+  </body>
+</html>
+
