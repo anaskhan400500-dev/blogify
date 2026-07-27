@@ -12,7 +12,7 @@ const comment = require("./model/comments");
 const { checkTokenAtEveryReq } = require("./middleware/authentication");
 
 const app = express();
-const port = process.env.PORT;
+const port = process.env.PORT || 8000;
 
 mongoose
   .connect(process.env.MONGO_URL)
